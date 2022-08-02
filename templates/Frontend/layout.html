@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>AD Woods</title>
+      <link href="{{url_for('static', filename='css/css/style.css')}}" rel="stylesheet"/>
+      <link href="{{url_for('static', filename='css/css/animate.min.css')}}" rel="stylesheet"/>
+      <link href="{{url_for('static', filename='css/css/bootstrap.min.css')}}" rel="stylesheet"/>
+      <link href="{{url_for('static', filename='font/css/all.min.css')}}" rel="stylesheet"/>
+      <link href="{{url_for('static', filename='font/js/all.min.js')}}" rel="stylesheet"/>
+      <link href="{{url_for('static', filename='js/bootstrap.min.js')}}" rel="stylesheet"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+      <script>  new WOW().init();</script>
+    </head>
+    <body>
+      <header>
+      <!--Navbar start-->
+      <div class="top-area bg-light">
+        <div class="header-area">
+    	
+          <nav class="navbar navbar-inverse bootsnav navbar-sticky navbar-scrollspy" style="display: inline;">
+          
+            <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand pl-5" style="font-family: 'Dancing Script', cursive; color: black;" href="#"><h1>AD Woods</h1></a>
+            </div>
+    
+    <ul class="nav navbar-nav">
+
+      <div class="d-flex">
+      <li class="active"><a href="/" style="color: black; font-family: 'Roboto Mono', monospace;"><h5>Home</h5></a></li>
+      <li><a class=""href="/blog" style="color: black; font-family: 'Roboto Mono', monospace;"><h5>&nbsp;&nbsp;Blog</h5></a></li>
+      <li><a class="" href="/contact" style="color: black; font-family: 'Roboto Mono', monospace;"><h5>&nbsp;&nbsp;Contact</h5></a></li> 
+      </div>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right pr-5">
+    
+      <div class="d-flex">
+                {% if session['username'] is defined %}
+                <a class="text-dark pt-2" href="#">Welcome :{{session['username']}}</a>
+                {% endif %}
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                
+                
+      <li class="pr-3 pt-2"><a href="#"><span class=""><i class="fa fa-search" style="color: black;"></i></span> </a></li>
+      <li class="pr-3 pt-2"><a href="/CartShow"><span class=""><i class="fas fa-shopping-cart" style="color: black;"></i></span><sup> {{session['count']}} </sup></a></li>
+      <li class="pr-3">     
+        {% if(session['login']==True) %}
+        <a class="nav-item nav-link" href="/logout_customer"><i class="fas fa-sign-out-alt" style="color: black;"></i></a>
+        {% else %}
+        <a class="nav-item nav-link" href="/login"><span class=""><i class="fas fa-user-alt" style="color: black;"></i></span></a>
+        {% endif %} </li>
+
+    </div>
+    </ul>
+  </div>
+</nav>
+</div>
+</div>
+<!--Navbar ends-->
+</header>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+
+    <div class="col-3"
+        <ul class="list-group">
+          {% for row in session['cate_menu']['data'] %}
+        <li class="list-group-item"><a href="/">{{row[2]}}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-sm-9">
+ -->        {% block content %}
+
+        {% endblock %}
+    </div>
+  </div>
+</div>
+ 
+
+  <!--Footer Start-->
+  <!-- Footer Links -->
+    
+    <!-- Grid row -->
+    <footer class="row bg-light p-2 text-dark bg-light text-justify text-md-justify mt-2 " style="font-family: 'Roboto Slab', serif; color: #dbdad7;">
+      
+      <!-- Grid column -->
+      <div class="col-md-4 mt-md-4 mt-4">
+        <img src="/static/images/download.png" class="img-logo1" style="width: 20em;">
+        <!-- Content -->
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">  
+      <!-- Grid column -->
+      <div class="col-md-4 mb-md-0 mb-3 p3">
+
+        <!-- Links -->
+        
+        <h3 class="text">Links</h3>
+
+        <ul class="list-unstyled footer-menu" style="font-size: 16px;">
+          <li>
+            <a href="/" style="color: black;"><i class="fas fa-angle-right"></i>&nbsp;Home</a>
+          </li>
+          <li>
+            <a href="/blog"style="color: black;"><i class="fas fa-angle-right"></i>&nbsp;Blog</a>
+          </li>
+          <li>
+            <a href="/contact" style="color: black;"><i class="fas fa-angle-right"></i>&nbsp;Contact</a>
+          </li>
+        </ul>
+      
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 mb-md-0 mb-3 p1">
+
+        <!-- Links -->
+        <div class="footer-right p2">
+        <h3 class="text">Address</h3>
+        <div>
+        <i class="fas fa-map-marker-alt"></i>
+        <p style="font-size: 15px;"><span>Basni phase 2,</span>
+          Jodhpur, Raj. 342 001, India</p>
+        </div>
+        <div>
+          <i class="fas fa-phone"></i>&nbsp;
+         <p style="font-size: 15px;"><a href="" class="text-dark"> +91 9587007865</a></p>
+        </div> 
+        
+        <div>
+          <i class="fas fa-envelope"></i>&nbsp;
+          <a class="text-warning" style="font-size: 13px;" href="Info@ADWoods.com">Info@ADWoods.com</a>
+        </div>
+        <div>  
+          <i class="fas fa-globe"></i>&nbsp;
+          <a class="text-warning" style="font-size: 13px;" href="http://www.ADWoods.com/">www.ADWoods.com</a>
+        </div>
+        
+        <div class="footer-icons bg-peace">
+          <p>Follow Us</p>
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-twitter-square"></i></a>
+          <a href="#"><i class="fab fa-instagram-square"></i></a>
+          <a href="#"><i class="fab fa-tumblr-square"></i></a>
+        
+          </div>
+      </div>
+      </div>
+      <!-- Grid column -->
+      
+    
+    <!-- Grid row -->
+
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright col-sm-12  text-center p-3" style="font-family: 'Roboto Slab', serif;">
+    <p class="text-center "> &copy; 2020 Copyright:
+    <a href="https://thecrowninternational.com/"> ADWoods.com</a>
+  </p>
+  </div>
+  <!-- Copyright -->
+</footer>
+      <!--Footer ends-->
+
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+      <script src="{{ url_for('static', filename = 'js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename = 'js/wow.min.js') }}"></script>
+      
+      
+    </body>
+</html>

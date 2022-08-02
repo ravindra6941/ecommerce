@@ -1,0 +1,67 @@
+{% extends 'dash/layout1.html' %}
+
+{% block content %}
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Product Display</h1></div>
+            <div class="row pt-5">
+             
+              <div class="col-sm-1"></div>
+               <div class="col-sm-10">
+                 <table class="table table-bordered">
+                   <tr> 
+                       <th>Cat_id</th>
+                       <th>Product_id</th>
+                       <th>Img</th>
+                       <th>Product_name</th>
+                       <th>pro_disc</th>
+                       <th>Price</th>
+                       <th>Quantity</th>
+                       <th>Edit</th>
+                       <th>Delete</th>
+                       <th>Popular</th>
+                   </tr>
+         
+                   {% for row in err['data'] %}
+                   
+                         <tr>
+                           
+                           <td> {{row[0]}} </td>
+                           <td> {{row[1]}} </td>
+                           <td>  <img src="static/images/{{row[2]}}" width=75 height=75/> </td>
+                           <td> {{row[3]}} </td>
+                           <td> {{row[4]}} </td>
+                           <td> {{row[5]}} </td>
+                           <td> {{row[6]}} </td>
+                           <td><a href="/edit/{{row[1]}}"><i class="far fa-edit"></i></a></td>
+                           <td><a href="/deldata/{{row[1]}}"><i class="fas fa-trash"></i></a></td>
+                           {% if row[7]==1 %}
+                              <td><input type="checkbox" checked="checked" name="xcheck"  id="{{row[1]}}" value="{{row[7]}}" onChange="popular(this.id,this.value)" ></td>
+                            {% else %}
+                            <td><input type="checkbox" name="xcheck"  id="{{row[1]}}" value="{{row[7]}}" onChange="popular(this.id, this.value)" ></td>
+                            
+                            {% endif %}
+                          </tr>
+                   {% endfor %}
+                 </table>
+               </div>
+               <div class="col-sm-1"></div>
+             </div>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      function popular(id,val)
+      {
+      
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "http://127.0.0.1:5000/popular/"+ id + "/" + val, true);
+        xhttp.send();
+
+      }
+    </script>
+
+    {% endblock %}

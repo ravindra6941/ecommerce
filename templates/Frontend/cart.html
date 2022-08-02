@@ -1,0 +1,57 @@
+{% extends 'frontend/layout.html' %}
+
+{% block content %}
+
+  <div class="container">
+        <div class="row pb-3">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h3 class="text-center text-danger"> Items In Cart</h3>
+                <table class="table">
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><a href='/UndoCart'><i class="fa fa-undo"></i></a></td>
+                        <td></td>
+                        <td><a href='/DelCart'><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td> Image </td>
+                        <td> Name </td>
+                        <td> price  </td>
+                        <td> Qnty </td>
+                        <td> Total  </td>
+                        <td> Del </td>
+                        <td> Edit </td>
+                    </tr>
+
+                    {% for row in session['cart'] %}
+                            {% if row[1] != 13 %}
+                                
+                            {% endif %}
+                        {% endfor %}
+                 
+                    {% for row in session['cart'] %}
+                        <tr>
+                           <td> <img src="/static/upload/{{row[2]}}" width="45" height="60" /></td>
+                       
+                           <td>{{row[3]}}</td>
+                            <td>{{row[5]}}</td>
+                            <td> 1 </td>
+                            <td>{{row[5]}}</td>
+                            <td><a href='/del/{{row[1]}}'><i class="fa fa-times"></i></a></td>
+                            <td><a href=''><i class="fa fa-edit"></i></a></td>
+
+                        </tr>
+               
+                    {% endfor %}
+                    <tr><td></td><td colspan=3> Total </td><td>{{session['total_amount']}}</td></tr>
+                </table>
+                <a href='/' class="btn btn-danger">continue Shopping</a>
+                <a href='/payment' class="btn btn-danger">Payment </a>
+
+            </div>
+            <div class="col-sm-2 "></div>
+        </div>
+    </div>
+
+    {% endblock %}

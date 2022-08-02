@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{{url_for('static', filename='css/css/animate.min.css')}}" rel="stylesheet"/>
+        <link href="{{url_for('static', filename='css/css/bootstrap.min.css')}}" rel="stylesheet"/>
+        <link href="{{url_for('static', filename='font/css/all.min.css')}}" rel="stylesheet"/>
+        <link href="{{url_for('static', filename='font/js/all.min.js')}}" rel="stylesheet"/>
+        <link href="{{url_for('static', filename='js/bootstrap.min.js')}}" rel="stylesheet"/>
+    
+
+    </head>
+    <body>
+        <a href="/login">login</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h1 class="text-center text-uppercase font-weight-bold">registration</h1>
+                    {% if(err|length) %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>{{err}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+                    {% endif %}
+                    <form action="/register" method="post" enctype="multipart/form-data">
+                        <lable>User Name</lable>
+                        <input type="text" name="xname" class="form-control"><br>
+                        <lable>Email</lable>
+                        <input type="text" name="xmail" class="form-control"><br>
+                        <lable>Password</lable>
+                        <input type="password" name="xpass" class="form-control"><br>
+                        <lable>Mobile</lable>
+                        <input type="text" name="xmob" class="form-control"><br> 
+                        <lable>City</lable>
+                        <input type="text" name="xcity" class="form-control"><br>
+                        <lable>State</lable>
+                        <input type="text" name="xstate" class="form-control"><br>
+                        <br>
+                        <input type="submit" name="xsub" value="Registration" class="btn btn-danger">
+                    </form>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+       
+    </body>
+</html>

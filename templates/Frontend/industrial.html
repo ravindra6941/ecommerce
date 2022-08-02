@@ -1,0 +1,26 @@
+{% extends 'frontend/layout.html' %}
+
+{% block content %}
+<div class="row">
+      <div class="col-sm-2 pt-2">
+
+        {% for row in err['data'] %} 
+        <!-- <input type="button" class="btn btn-link" value ="err['data'][0][2]"> -->
+        <!-- <button typr="button" class="btn btn-danger">err['data'][0][2]</button> -->
+      </div>
+      <div class="col-sm-2 mt-4 p-2">
+        <div class="card">
+                <img class="card-img-top" src={{ "/static/upload/" + row[2]}} width=100 height=150 alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-title l2"><b>{{row[3]}}</b></p>
+                 
+                  <p class="card-text text-danger">Rs. {{row[5]}}/-</p>
+                  <a href="/subproduct/{{row[1]}}" class="btn btn-primary">Buy</a>
+                </div>
+              </div>
+              {% endfor %}
+      </div>
+    </div>
+
+
+{% endblock %}

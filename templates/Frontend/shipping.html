@@ -1,0 +1,60 @@
+{% extends 'frontend/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-danger text-center"> Shipping Address  </h2>
+    <div class="row pb-4">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <form class="form-signin"  action="/shipping" method="POST" enctype="multipart/form-data">
+
+
+            <div class="form-label-group">
+              <label for="inputEmail">user name</label>
+              <input type="text" id="inputuser" name="xuser" class="form-control" placeholder="user name" value="{{session['username']}}" />
+            </div>
+
+            <div class="form-label-group">
+              <label for="inputEmail">Email address</label>
+              <input type="text" id="inputEmail" name="xemail" class="form-control" placeholder="user Email"  value="{{session['email']}}" required />
+            </div>
+
+            <div class="form-label-group">
+              <label for="inputEmail">MOBILE NO</label>
+              <input type="text" id="inputmobile" name="xmobile" class="form-control" placeholder="user Mobile"  value="{{session['mobile']}}" required/>
+            </div>
+            
+            
+
+            <div class="form-label-group">
+              <label for="inputPassword">Address</label>
+              <textarea class="form-control" rows=7 name="xadd" placeholder="Enter Address"></textarea>
+            </div>
+
+            <div class="form-label-group">
+              <label for="inputPassword">City </label>
+              <input type="text" name="xcity" id="inputPassword" class="form-control" placeholder="Your City " required>
+              
+            </div>
+            <div class="form-label-group">
+              <label for="inputPassword">City Zip Code</label>
+              <input type="text" name="xcode" id="inputPassword" class="form-control" placeholder="City Zip Code " required>
+              
+            </div>
+           
+            <br/><br/>
+          
+            <button class="btn btn-lg btn-primary btn-block text-uppercase"  name="xsub" type="submit">Shipping My Product</button>
+            <hr class="my-4">
+            <div class="text-center">
+            <button type="submit" class="float btn btn-dark btn-md r-0.4"><a href="/newUser"></a>Login</button>
+            </div>
+            <!-- <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button> -->
+          </form>
+        </div>
+        <div class="col-sm-2"></div>
+
+      </div>
+</div>
+{% endblock %}

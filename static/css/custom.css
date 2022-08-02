@@ -1,0 +1,7 @@
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+  background-color: #f9fafb !important;
+}
+
+.table td, .table th {
+  white-space: normal;
+}

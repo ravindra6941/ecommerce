@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Mirrored from perfectoexports.com/admin/login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Oct 2020 09:16:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="JJg2fPRAYrgrMcFDyzVraQJjrQ4JQZdQJWK8XUFm">
+
+    <title>AD Woods</title>
+    <!-- Scripts -->
+
+
+    <!-- Styles -->
+    <link media="all" type="text/css" rel="stylesheet" href="../public/admin/fonts/feather-font/css/iconfont.css">
+
+    <link href="../public/css/font-awesome.css" rel="stylesheet">
+    <link href="../public/admin/plugins/toast/jquery.toast.min.css" rel="stylesheet">
+    <link href="../public/admin/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet">
+    <link href="../public/admin/css/app.css" rel="stylesheet">
+    <link href="../public/admin/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<div class="main-wrapper" id="app">
+        <div class="page-wrapper full-page">
+        <div class="page-content d-flex align-items-center justify-content-center">
+
+            <div class="row w-100 mx-0 auth-page">
+                <div class="col-md-8 col-xl-6 mx-auto">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-4 pr-md-0">
+                                <div class="auth-left-wrapper"
+                                     style="background-image: url('static/images/img6');">
+                                </div>
+                            </div>
+                            <div class="col-md-8 pl-md-0">
+                                <div class="auth-form-wrapper px-4 py-5">
+
+                                    <h5 class="text-muted font-weight-normal mb-4">Welcome back! Log in to your
+                                        account.</h5>
+                                    <form method="POST" action="/log">
+                                        <input type="hidden" name="_token" value="JJg2fPRAYrgrMcFDyzVraQJjrQ4JQZdQJWK8XUFm">                                 
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control  " name="email" value="" required autocomplete="email" autofocus
+                                                    placeholder="Email">
+                                            </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control  " id="exampleInputPassword1" name="password" required autocomplete="current-password"
+                                                   autocomplete="current-password" placeholder="Password">
+                                                                                    </div>
+                                        
+                                        <div class="mt-3">
+                                            <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">Login</button>
+                                        </div>
+                                            
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../public/admin/js/app.js"></script>
+
+<script src="../public/js/fontawesome.min.js" ></script>
+<script src="../public/admin/js/spinner.js"></script>
+<script src="../public/admin/plugins/feather-icons/feather.min.js"></script>
+<script src="../public/admin/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="../public/admin/plugins/toast/jquery.toast.min.js"></script>
+<script src="../public/admin/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="../public/admin/js/template.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".multipleUploadBtn").on("change", function (e) {
+                readURL(this);
+            });
+
+                        
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('.preview-area img').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+<!-- Mirrored from perfectoexports.com/admin/login by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Oct 2020 09:16:31 GMT -->
+</html>

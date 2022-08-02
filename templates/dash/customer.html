@@ -1,0 +1,43 @@
+{% extends 'dash/layout1.html' %}
+
+{% block content %}
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Customer</h1></div>
+            <div class="row pt-5">
+              
+              <div class="col-sm-1"></div>
+               <div class="col-sm-10">
+                 <table class="table table-bordered">
+                   <tr> 
+                       <th>Name</th>
+                       <th>Email</th>
+                       <th>password</th>
+                       <th>Mobile Number</th>
+                       <th>City</th>
+                       <th>State</th>
+                   </tr>
+         
+                   {% for row in err['data'] %}
+                   
+                         <tr>
+                           
+                           <td> {{row[1]}} </td>
+                           <td> {{row[2]}} </td>
+                           <td> {{row[3]}} </td>
+                           <td> {{row[4]}} </td>
+                           <td> {{row[5]}} </td>
+                           <td> {{row[6]}} </td>
+                           
+                 </tr>
+                   {% endfor %}
+                 </table>
+               </div>
+               <div class="col-sm-1"></div>
+             </div>
+        </main>
+      </div>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'dash/layout1.html' %}
+
+{% block content %}
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Edit Product</h1>
+          </div>
+
+          <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-6">
+        <form class="form" action="/updatepro" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="{{err['data'][0][1]}}" name="xid"/>
+            <label>product Name</label>
+            <input class="form-control" type="text" name="xpname" value="{{err['data'][0][3]}}" placeholder="Product Name">
+            <br>
+            <label>Product Discription</label>
+            <textarea class="form-control" type="text" name="xpdisc" placeholder="write the description of the product">{{err['data'][0][4]}}</textarea>
+            <br>
+            <label>Price</label>
+            <input class="form-control" type="number" name="xprice" value="{{err['data'][0][5]}}" placeholder="Rs.">
+            <br>
+            <label>Quantity</label>
+            <input class="form-control" type="number" name="xqnty" value="{{err['data'][0][6]}}" placeholder="Quantity of Product">
+            <br>
+            <div class="file">
+                <label>Choose file</label>
+                <input type="file" class="form-control" name="xfile"  value="{{err['data'][0][2]}}">
+            </div>
+            <br>
+            <button type="submit" class="fluid btn btn-lg btn-danger btn-center">Update</button>
+        </form>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+
+        </main>
+      </div>
+    </div>
+
+    {% endblock %}

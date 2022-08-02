@@ -1,0 +1,45 @@
+{% extends 'dash/layout1.html' %}
+
+{% block content %}
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Products</h1></div>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-7">
+                <form class="form" action="/pro" method="POST" enctype="multipart/form-data">
+                    <select class="form-control" name="xcat">
+                      {% for val in err['data'] %}
+                       <option value="{{val[0]}}"> {{ val[2] }} </option>
+                      {% endfor %}
+                    </select>
+                    <br>
+                    <label>product Name</label>
+                    <input class="form-control" type="text" name="xpname" placeholder="Product Name">
+                    <br>
+                    <label>Product Discription</label>
+                    <textarea class="form-control" type="text" name="xpdisc" placeholder="write the description of the product"></textarea>
+                    <br>
+                    <label>Price</label>
+                    <input class="form-control" type="number" name="xprice" placeholder="Rs.">
+                    <br>
+                    <label>Quantity</label>
+                    <input class="form-control" type="number" name="xqnty" placeholder="Quantity of Product">
+                    <br>
+                    <div class="file">
+                        <label>Choose file</label>
+                        <input type="file" class="file-input"name="xfile" id="file">
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-danger" name="xsub" value="Submit"> 
+                </form>
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
+        </main>
+      </div>
+    </div>
+    
+    
+    {% endblock %}

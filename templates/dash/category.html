@@ -1,0 +1,31 @@
+{% extends 'dash/layout1.html' %}
+
+{% block content %}
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Category</h1></div>
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-7">
+                <form class="form" action="/cat" method="POST" enctype="multipart/form-data">
+                  <label>Category Name</label>
+                  <input class="form-control" type="text" name="xcname" placeholder="Category Name">
+                  <br>
+                  <label>Category Discription</label>
+                  <textarea class="form-control" type="text" name="xcdisc" placeholder="write the description of the category"></textarea>
+                    <br>
+                  <div class="file">
+                    <label>Choose file</label>
+                    <input type="file" class="file-input" name="xfile" id="file">
+                  </div>
+                  <br>
+                  <input type="submit" class="btn btn-danger text-center" name="xsub" value="Submit"> 
+                </form>
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
+        </main>
+      </div>
+    </div>
+
+{% endblock %}

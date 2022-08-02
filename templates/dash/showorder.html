@@ -1,0 +1,76 @@
+{% extends 'dash/layout1.html' %}
+
+{% block content %}
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Orders</h1>
+          </div>
+          
+         <div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+
+            <table class="table table-bordered">
+                <tr>
+                    
+               
+                    <td> Product</td>
+                    <td> Price </td>
+                    <td> Order No</td>
+                    <td> Order Date  </td>
+                    <td>Shipped </td>
+                    <td>Order Completed</td>
+                    <td>Cancel by Customer</td>
+                    
+                </tr>
+              
+                {% for row in err %}
+               
+
+                <tr align="center">
+                    
+                    <td>{{row[3]}} </td>
+                    <td>{{row[5]}} </td>
+                    <td>{{row[0]}} </td>
+                    <td>{{row[2]}} </td>
+                    <td>
+                        {% if(row[6]==0)%}
+                            <a href='/shippedOrder/{{row[0]}}'>
+                                <i class="fa-solid fa-truck text-danger text-center"></i>
+                            </a>
+                        {% else %}
+                            <i class="fa fa-check text-success"></i>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if(row[7]==0)%}
+                        <a href='/OrderCompleted/{{row[0]}}'>
+                            <i class="fa fa-home text-danger text-center"></i>
+                        </a>
+                        {% else %}
+                            <i class="fa fa-check text-success"></i>
+                        {% endif %}
+                    </td>
+                  
+                    <td>
+                        <a href='/delCustomer/{{row[0]}}/{{row[8]}}'>
+                            {% if(row[5]==1) %}
+                                <i class="fa fa-eye"></i></a>
+                            {% else %}
+                            <i class="fa fa-eye-slash"></i></a>
+                            {% endif %}
+                    </td>
+            
+                </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+        </main>
+      </div>
+    </div>
+
+   {% endblock %}
